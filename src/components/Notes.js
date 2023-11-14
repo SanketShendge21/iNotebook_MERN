@@ -11,7 +11,7 @@ function Notes() {
     <h2>Your Notes</h2>
     {/* Fetching all notes using map function */}
     {notes.map((note) =>{
-      return <Noteitem note={note}/>
+      return <Noteitem key={note._id} note={note}/>
     })}
     </div>
   )

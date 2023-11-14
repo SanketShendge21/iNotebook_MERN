@@ -22,7 +22,7 @@ const NoteState = (props) => {
   // const [state, setState] = useState(state1) // Use state for updating current state
 
   const notesInitial = [{
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d916d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket",
     "description": "Good to go, doing a great job",
@@ -31,7 +31,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a08088350d91d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -40,7 +40,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a08088340d91d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -49,7 +49,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d911d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -58,7 +58,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a08088230d91d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -67,7 +67,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"6524a08088330d91d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
