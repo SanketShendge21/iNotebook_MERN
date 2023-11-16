@@ -96,12 +96,14 @@ const NoteState = (props) => {
   }
 
   // Delete a note
-  const deleteNote = () =>{
-    
+  const deleteNote = (id) =>{
+    console.log("Delete a note" + id);
+    const newNotes = notes.filter((note) =>{ return note._id !== id}) // If the note id is not in the notes array then remove it from the notes array
+    setNotes(newNotes);
   }
 
   // Edit a note
-  const editNote = () =>{
+  const editNote = (id,title,description,tag) =>{
     
   }
 
