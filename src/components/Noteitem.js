@@ -1,6 +1,10 @@
 import React from "react";
+import NoteContext from "../context/notes/NoteContext.js";
+import { useContext } from "react";
 
 const Noteitem = (props) => {
+  const context = useContext(NoteContext); // importing context
+  const { deleteNote } = context;  // delete context.
   const { note } = props;
   return (
     <>
@@ -11,7 +15,7 @@ const Noteitem = (props) => {
             <p className="card-text">
             {note.description}
             </p>
-            <i className="fa-solid fa-trash mx-2"></i>
+            <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}}></i> {/*  Adding a onclick handler   */}
             <i className="fa-solid fa-pen-to-square mx-2"></i>
           </div>
         </div>
