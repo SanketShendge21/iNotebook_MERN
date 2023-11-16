@@ -22,7 +22,7 @@ const NoteState = (props) => {
   // const [state, setState] = useState(state1) // Use state for updating current state
 
   const notesInitial = [{
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d91d84f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket",
     "description": "Good to go, doing a great job",
@@ -31,7 +31,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d91d54f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -40,7 +40,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d981d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -49,7 +49,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d491d4f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -58,7 +58,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d91d4f11f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -67,7 +67,7 @@ const NoteState = (props) => {
     "__v": 0,
   },
   {
-    "_id":"654a0808830d91d4f1f13b1b",
+    "_id":"654a0808830d91d42f1f13b1b",
     "user": "65426565471e862fd168d56f",
     "title": "Hey there, Sanket 2",
     "description": "Good to go, doing a great job",
@@ -78,9 +78,36 @@ const NoteState = (props) => {
 ]
 
   const [notes, setNotes] = useState(notesInitial);
+
+  // Add a note
+  const addNote = (title,description,tag) =>{
+    // TODO API call
+    console.log("adding a new note");
+    const note = {
+      "_id":"654a080881230d91d4f1f13bxyz1bb",
+      "user": "65426565471e862fd168d56f",
+      "title": title,
+      "description": description,
+      "tag": tag,
+      "date":  "2023-11-07T09:50:36.580Z",
+      "__v": 0,
+    }
+    setNotes(notes.concat(note)) // concat returns an array whereas push updates an array
+  }
+
+  // Delete a note
+  const deleteNote = () =>{
+    
+  }
+
+  // Edit a note
+  const editNote = () =>{
+    
+  }
+
   return (
     //passed state in value and it will fetch all the childern component wherever we call the context api
-    <NoteContext.Provider value={{ notes, setNotes }}>
+    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote }}>
       {props.children}
     </NoteContext.Provider>
   );
