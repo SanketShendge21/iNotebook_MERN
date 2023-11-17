@@ -5,7 +5,7 @@ import { useContext } from "react";
 const Noteitem = (props) => {
   const context = useContext(NoteContext); // importing context
   const { deleteNote } = context;  // delete context.
-  const { note } = props;
+  const { note, updateNote } = props;
   return (
     <>
       <div className="col-md-3">
@@ -15,8 +15,8 @@ const Noteitem = (props) => {
             <p className="card-text">
             {note.description}
             </p>
-            <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}}></i> {/*  Adding a onclick handler   */}
-            <i className="fa-solid fa-pen-to-square mx-2"></i>
+            <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}}></i> {/*  Adding a onclick handler arrow function because we are also passing argument to the function  */}
+            <i className="fa-solid fa-pen-to-square mx-2" onClick={()=>{updateNote(note)}}></i> {/* update note with new value arrow function because we are also passing argument to the function*/}
           </div>
         </div>
       </div>

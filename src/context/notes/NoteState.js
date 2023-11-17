@@ -40,11 +40,12 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU0MjY1NjU0NzFlODYyZmQxNjhkNTZmIn0sImlhdCI6MTY5OTA4NDIwNX0.jc_VzFBWA_qqf1EcbMc-ZmhRfn3k4L7QRAc999KjWek"
+        "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU0ZjkwOTBkMDQ1OGMwMzg4NmJkMTczIn0sImlhdCI6MTY5OTg2MDc1NH0.lKkYukvpkJZDZduIAWDE-jmjoKJ_D1s2z6PtoXA7U0I"
       },
       body: JSON.stringify(data),
     });
-
+    const json = await response.json();
+    console.log(json);
     console.log("adding a new note");
     const note = {
       "_id":"654a080881230d91d4f1f13bxyz1bb",
@@ -76,7 +77,18 @@ const NoteState = (props) => {
   }
 
   // Delete a note
-  const deleteNote = (id) =>{
+  const deleteNote = async (id) =>{
+    
+    const url = `${host}api/notes/deletenote/${id}`; // API endpoint URL
+    const response = await fetch(url,{
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU0ZjkwOTBkMDQ1OGMwMzg4NmJkMTczIn0sImlhdCI6MTY5OTg2MDc1NH0.lKkYukvpkJZDZduIAWDE-jmjoKJ_D1s2z6PtoXA7U0I"
+      }
+    });
+    const json = await response.json();
+    console.log(json);
     console.log("Delete a note" + id);
     const newNotes = notes.filter((note) =>{ return note._id !== id}) // If the note id is not in the notes array then remove it from the notes array
     setNotes(newNotes);
