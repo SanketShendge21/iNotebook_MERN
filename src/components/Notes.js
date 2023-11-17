@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import NoteContext from "../context/notes/NoteContext.js";
 import Noteitem from "./Noteitem.js";
 import AddNote from "./AddNote.js";
 
+
 function Notes() {
   const context = useContext(NoteContext); // importing context
-  const { notes } = context;
+  const { notes , getNotes } = context;
+  useEffect(() =>{ // Everytime component is rendered with context we need to fetch the notes
+    getNotes();
+  });
   return (
     <>
       <AddNote />
