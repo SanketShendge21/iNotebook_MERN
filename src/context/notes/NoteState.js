@@ -109,7 +109,7 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU0MjY1NjU0NzFlODYyZmQxNjhkNTZmIn0sImlhdCI6MTY5OTA4NDIwNX0.jc_VzFBWA_qqf1EcbMc-ZmhRfn3k4L7QRAc999KjWek"
+        "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU0ZjkwOTBkMDQ1OGMwMzg4NmJkMTczIn0sImlhdCI6MTY5OTg2MDc1NH0.lKkYukvpkJZDZduIAWDE-jmjoKJ_D1s2z6PtoXA7U0I"
       },
       body: JSON.stringify(data),
     });
@@ -123,8 +123,8 @@ const NoteState = (props) => {
         element.title = title;
         element.description = description;
         element.tag = tag;
+        break;
       }
-      
     }
   }
 
