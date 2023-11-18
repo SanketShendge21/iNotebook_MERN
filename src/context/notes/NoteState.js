@@ -44,19 +44,9 @@ const NoteState = (props) => {
       },
       body: JSON.stringify(data),
     });
-    const json = await response.json();
-    console.log(json);
-    console.log("adding a new note");
-    const note = {
-      "_id":"654a080881230d91d4f1f13bxyz1bb",
-      "user": "65426565471e862fd168d56f",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date":  "2023-11-07T09:50:36.580Z",
-      "__v": 0,
-    }
+    const note = await response.json(); // directly save note from server
     setNotes(notes.concat(note)) // concat returns an array whereas push updates an array
+    
   }
 
   // Fetch or Get all notes
@@ -88,8 +78,6 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json();
-    console.log(json);
-    console.log("Delete a note" + id);
     const newNotes = notes.filter((note) =>{ return note._id !== id}) // If the note id is not in the notes array then remove it from the notes array
     setNotes(newNotes);
   }
@@ -114,8 +102,7 @@ const NoteState = (props) => {
       body: JSON.stringify(data),
     });
     const json = await response.json();
-    console.log(json);
-    
+
     //Logic to edit the note
     for (let i = 0; i < notes.length; i++) {
       const element = notes[i];

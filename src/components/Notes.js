@@ -84,6 +84,7 @@ const onChange = (e) =>{
                     name="etitle"
                     value={note.etitle}
                     onChange={onChange}
+                    minLength={5}
                   />
                 </div>
                 <div className="mb-3">
@@ -97,6 +98,7 @@ const onChange = (e) =>{
                     name="edescription"
                     value={note.edescription}
                     onChange={onChange}
+                    minLength={5}
                   />
                 </div>
                 <div className="mb-3">
@@ -123,7 +125,7 @@ const onChange = (e) =>{
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary" onClick={handleClick}>
+              <button disabled={note.etitle.length < 5 || note.edescription.length < 5} type="button" className="btn btn-primary" onClick={handleClick}>
                 Update Note
               </button>
             </div>
@@ -133,6 +135,10 @@ const onChange = (e) =>{
       <div className="row my-3">
         <h2>Your Notes</h2>
         {/* Fetching all notes using map function */}
+        <div className="container mx-2">
+          {notes.length === 0 && ' No notes to display'}
+        </div>
+
         {notes.map((note) => {
           return (
             <Noteitem key={note._id} updateNote={updateNote} note={note} />
