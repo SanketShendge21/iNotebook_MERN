@@ -102,7 +102,7 @@ router.post('/createuser', validate(createUserValidation, {}, {}), async (req, r
 router.post('/login',validate(loginValidation, {}, {}), async (req,res) => {
 
   const {email,password} = req.body;
-
+  let success = false;
   try {
     let user = await User.findOne({email})
     if(!user){
@@ -112,7 +112,8 @@ router.post('/login',validate(loginValidation, {}, {}), async (req,res) => {
     // Comparing password with hashed password
     const passwordCompare = await bcrypt.compare(password,user.password);
     if(!passwordCompare){
-      return res.status(400).json({error : "Please try to login using correct credentials"});
+      return res.status(400).json({success,error : "Please try to login using correct credentials"});
+      
     }
 
     // If credentails are correct  we send payload (user data)
@@ -126,7 +127,8 @@ router.post('/login',validate(loginValidation, {}, {}), async (req,res) => {
     const JWT_SECRET = "sanket@123";
     // console.log(JWT_SECRET)
     const authToken = jwt.sign(data,JWT_SECRET);
-    res.send({authToken})
+    success = true;
+    res.send({success,authToken})
 
   } catch (error) {
     console.log(error)
