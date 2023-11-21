@@ -48,6 +48,7 @@ const loginValidation = {
 // ROUTE 1 : Create a user using : POST req to "/api/auth/createuser". No login required
 router.post('/createuser', validate(createUserValidation, {}, {}), async (req, res) => { // /createuser endpoint to create a user
     try {
+        let success = false;
         // console.log(req.body);
 
         // const user = new User(req.body); // one of the method to store in database without validation
@@ -61,7 +62,7 @@ router.post('/createuser', validate(createUserValidation, {}, {}), async (req, r
         let user = await User.findOne({email : req.body.email}); //wait till it resolves the returning promise
         
         if(user){
-          return res.status(400).json({error : "Sorry user with this email already exists"})
+          return res.status(400).json({success,error : "Sorry user with this email already exists"})
         }
 
         const salt = await bcrypt.genSalt(10); // Generating salt using in-built function genSalt 10 rounds to use and await because it returns a promise
@@ -89,7 +90,8 @@ router.post('/createuser', validate(createUserValidation, {}, {}), async (req, r
         //   "Message" : "User created successfully"}); // response if user is created successfully
         // res.send("Hello"); // can send response only once if already send : Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
         
-        res.json({authToken})
+        success = true;
+        res.json({success,authToken})
 
     } catch (error) {
         res.status(500).send("Internal Server Error");
