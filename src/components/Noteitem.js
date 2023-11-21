@@ -15,8 +15,8 @@ const Noteitem = (props) => {
             <p className="card-text">
             {note.description}
             </p>
-            <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id)}}></i> {/*  Adding a onclick handler arrow function because we are also passing argument to the function  */}
-            <i className="fa-solid fa-pen-to-square mx-2" onClick={()=>{updateNote(note)}}></i> {/* update note with new value arrow function because we are also passing argument to the function*/}
+            <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteNote(note._id); props.showAlert("Deleted Successfully","success")}}></i> {/*  Adding a onclick handler arrow function because we are also passing argument to the function  */}
+            <i className="fa-solid fa-pen-to-square mx-2" onClick={()=>{updateNote(note);}}></i> {/* update note with new value arrow function because we are also passing argument to the function*/}
           </div>
         </div>
       </div>
