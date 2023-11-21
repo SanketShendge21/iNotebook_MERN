@@ -25,16 +25,17 @@ const Login = (props) => {
         console.log(json);
         if(json.success){
             // Save the auth-token and redirect to
-            localStorage.setItem('token',json.authtoken);
-            navigate('/'); // UseNavigation to navigate
+            localStorage.setItem('token',json.authToken); // Setting in local storage so that we can access the token again to fetch user specific information
 			props.showAlert("Login Successful","success");
+            navigate('/'); // UseNavigation to navigate
         }
         else{
 			props.showAlert("Invalid Credentials","danger");
         }
     };
 	return (
-		<div>
+		<div className="container mt-3">
+			<h2>Login to continue to iNotebook</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="mb-3">
 					<label

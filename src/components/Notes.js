@@ -2,13 +2,22 @@ import { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/NoteContext.js";
 import Noteitem from "./Noteitem.js";
 import AddNote from "./AddNote.js";
+import { useNavigate  } from "react-router-dom";
 
 function Notes(props) {
+  let navigate = useNavigate ();
   const context = useContext(NoteContext); // importing context
   const { notes, getNotes , editNote } = context;
   useEffect(() => {
+    if(localStorage.getItem('token')){ 
+    // if token is already present then show the notes
     // Everytime component is rendered with context we need to fetch the notes
-    getNotes();
+      getNotes();
+    }
+    else{
+      // if token is not present redirect to login page
+      navigate('/login');
+    }
   });
 
   const ref = useRef(null);
